@@ -6,13 +6,13 @@ module.exports = {
     await queryInterface.bulkInsert('users',
       [{
         name: 'Vinicius de Paula',
-        cpf: '12345678910',
+        cpf: '123.456.789-10',
         password: '123456',
         account_id: 1,
       },
       {
         name: 'Roberta Dutra',
-        cpf: '98765432109',
+        cpf: '987.654.321-09',
         password: '987654',
         account_id: 2,
         },

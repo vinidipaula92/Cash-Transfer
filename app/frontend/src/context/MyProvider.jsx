@@ -12,6 +12,7 @@ export default function MyProvider(props) {
   });
 
   const [credentialError, setCredentialError] = useState(false);
+  const [messageError, setMessageError] = useState('');
 
   const handleLogin = async () => {
     try {
@@ -22,6 +23,10 @@ export default function MyProvider(props) {
     } catch (error) {
       if (error.response.status === StatusCodes.UNAUTHORIZED) {
         setCredentialError(true);
+        setMessageError('Senha incorreta');
+      } else if (error.response.status === StatusCodes.NOT_FOUND) {
+        setCredentialError(true);
+        setMessageError('Usuário não encontrado');
       }
     }
   };
@@ -34,6 +39,7 @@ export default function MyProvider(props) {
     handleLogin,
     credentialError,
     setCredentialError,
+    messageError,
   };
 
   return <Provider value={data}>{children}</Provider>;

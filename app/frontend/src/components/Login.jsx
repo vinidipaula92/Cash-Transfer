@@ -1,9 +1,15 @@
 import myContext from '../context/MyContext';
 import { useContext } from 'react';
+import InputMask from 'react-input-mask';
 
 export default function Login() {
-  const { credential, setCredential, handleLogin, credentialError } =
-    useContext(myContext);
+  const {
+    credential,
+    setCredential,
+    handleLogin,
+    credentialError,
+    messageError,
+  } = useContext(myContext);
 
   const handleChange = ({ target }) => {
     const { name, value } = target;
@@ -18,13 +24,14 @@ export default function Login() {
         <form className="flex flex-col gap-6">
           <div className="flex flex-col gap-2">
             <label htmlFor="cpf">CPF:</label>
-            <input
+            <InputMask
               className="border-2 border-gray-300 rounded-md p-2"
-              type="number"
+              type="text"
               name="cpf"
               id="cpf"
               value={credential.cpf}
               onChange={handleChange}
+              mask="999.999.999-99"
             />
             <label htmlFor="password">Senha:</label>
             <input
@@ -36,6 +43,7 @@ export default function Login() {
               onChange={handleChange}
             />
           </div>
+          {credentialError && <p className="text-red-500">{messageError}</p>}
           <button
             type="button"
             className="bg-indigo-500 text-white rounded-md p-2"
@@ -49,7 +57,6 @@ export default function Login() {
           >
             Esqueci minha senha
           </button>
-          {credentialError && <p className="text-red-500">{credentialError}</p>}
         </form>
       </div>
     </div>

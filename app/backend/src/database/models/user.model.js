@@ -8,7 +8,7 @@ const UserModel = (sequelize, DataTypes) => {
       autoIncrement: true,
     },
     name: DataTypes.STRING,
-    cpf: DataTypes.STRING(11),
+    cpf: DataTypes.STRING(14),
     password: DataTypes.STRING,
     accountId: DataTypes.INTEGER,
   }, {
