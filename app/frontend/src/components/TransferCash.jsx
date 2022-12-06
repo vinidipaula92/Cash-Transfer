@@ -1,3 +1,5 @@
+import InputMask from 'react-input-mask';
+
 export default function TransferCash() {
   const username = JSON.parse(localStorage.getItem('user'));
 
@@ -14,11 +16,11 @@ export default function TransferCash() {
           <form className="flex flex-col gap-6">
             <div className="flex flex-col gap-2">
               <label htmlFor="cpf">CPF do destinatário:</label>
-              <input
+              <InputMask
                 type="cpf"
                 name="cpf"
                 id="cpf"
-                placeholder="000.000.000-00"
+                mask="999.999.999-99"
                 className="border-2 border-gray-300 rounded-md p-2"
               />
               <label htmlFor="valor">Valor:</label>

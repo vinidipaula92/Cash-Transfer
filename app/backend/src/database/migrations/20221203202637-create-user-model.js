@@ -9,7 +9,7 @@ module.exports = {
       autoIncrement: true,
     },
     name: Sequelize.STRING,
-    cpf: Sequelize.STRING(11),
+    cpf: Sequelize.STRING(14),
     password: Sequelize.STRING,
     accountId: {
       type: Sequelize.INTEGER,
