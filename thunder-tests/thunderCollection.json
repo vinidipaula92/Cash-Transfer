@@ -1,0 +1,17 @@
+[
+  {
+    "_id": "cda062fd-2b86-4afa-9662-a86728e1160e",
+    "colName": "Donus-doce",
+    "created": "2022-12-05T23:45:39.334Z",
+    "sortNum": 10000,
+    "folders": [
+      {
+        "_id": "a27b3422-2c5c-4472-9bd6-d4f11ac9a546",
+        "name": "user",
+        "containerId": "",
+        "created": "2022-12-05T23:45:44.802Z",
+        "sortNum": 10000
+      }
+    ]
+  }
+]

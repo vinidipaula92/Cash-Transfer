@@ -1,0 +1,21 @@
+[
+  {
+    "_id": "06b4cc2b-93bd-4d79-a7b9-90d0ff1f997a",
+    "colId": "cda062fd-2b86-4afa-9662-a86728e1160e",
+    "containerId": "a27b3422-2c5c-4472-9bd6-d4f11ac9a546",
+    "name": "getAll",
+    "url": "http://localhost:3000/users/3",
+    "method": "GET",
+    "sortNum": 10000,
+    "created": "2022-12-05T23:45:51.127Z",
+    "modified": "2022-12-06T00:28:24.444Z",
+    "headers": [],
+    "params": [],
+    "body": {
+      "type": "json",
+      "raw": "{\n  \"name\": \"Joanna dutra\",\n  \"cpf\": 12345678413,\n  \"password\": \"joannadutras\"\n}",
+      "form": []
+    },
+    "tests": []
+  }
+]
