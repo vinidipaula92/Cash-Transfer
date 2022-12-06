@@ -45,7 +45,29 @@ const userService = {
       attributes: { exclude: ['password'] },
     });
     return user;
-   }
+  },
+  
+  async login(user) {
+    const { cpf, password } = user;
+    const userLogin = await models.user.findOne({
+      where: { cpf },
+    });
+    if (!userLogin) {
+      const error = new Error('User not found');
+      error.code = 404;
+      throw error;
+    }
+    if (userLogin.password !== password) {
+      const error = new Error('Incorrect password');
+      error.code = 401;
+      throw error;
+    }
+    const userBalance = await models.account.findOne({
+      where: { id: userLogin.accountId },
+    });
+    const { id, password: except, ...userWithoutPassword } = userLogin.dataValues;
+    return { ...userWithoutPassword, balance: userBalance.balance };
+   },
 }
 
 module.exports = userService;

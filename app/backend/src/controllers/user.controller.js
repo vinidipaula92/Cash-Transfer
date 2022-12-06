@@ -17,6 +17,12 @@ const userController = {
     const user = await userService.getById(id);
     res.status(200).json(user);
   },
+
+  async login(req, res) {
+    const { cpf, password } = req.body;
+    const user = await userService.login({ cpf, password });
+    res.status(200).json(user);
+   },
 };
 
 module.exports = userController;
