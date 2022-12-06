@@ -1,9 +1,10 @@
-import Home from './pages/Home';
+import Routers from './components/Routers';
+import MyProvider from './context/MyProvider';
 
 export default function App() {
   return (
-    <div>
-      <Home />
-    </div>
+    <MyProvider>
+      <Routers />
+    </MyProvider>
   );
 }

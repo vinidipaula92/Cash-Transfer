@@ -17,5 +17,24 @@
       "form": []
     },
     "tests": []
+  },
+  {
+    "_id": "554049cf-365d-4f2f-8e20-8fc089b3a2c1",
+    "colId": "cda062fd-2b86-4afa-9662-a86728e1160e",
+    "containerId": "a27b3422-2c5c-4472-9bd6-d4f11ac9a546",
+    "name": "Login",
+    "url": "http://localhost:3001/users",
+    "method": "POST",
+    "sortNum": 20000,
+    "created": "2022-12-06T20:49:13.671Z",
+    "modified": "2022-12-06T21:05:27.238Z",
+    "headers": [],
+    "params": [],
+    "body": {
+      "type": "json",
+      "raw": "{\n  \"cpf\": \"12345678910\",\n  \"password\": \"123456\"\n}",
+      "form": []
+    },
+    "tests": []
   }
 ]
