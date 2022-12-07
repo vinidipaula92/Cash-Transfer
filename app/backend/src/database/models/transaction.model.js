@@ -8,6 +8,7 @@ const transactionModel = (sequelize, DataTypes) => {
     debitedAccountId: DataTypes.INTEGER,
     creditedAccountId: DataTypes.INTEGER,
     value: DataTypes.INTEGER,
+    description: DataTypes.STRING,
     createdAt: DataTypes.DATE,
   }, {
     tableName: 'transactions',

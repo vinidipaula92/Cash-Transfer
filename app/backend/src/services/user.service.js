@@ -47,7 +47,14 @@ const userService = {
 
   async getById(id) {
     const user = await models.user.findByPk(id, {
-      attributes: { exclude: ['password'] },
+      attributes: { exclude: ['password', 'id'] },
+      include: [
+        {
+          model: models.account,
+          as: 'userInfo',
+          attributes: ['balance'],
+        },
+      ],
     });
     return user;
   },

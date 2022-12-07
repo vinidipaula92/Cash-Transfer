@@ -1,5 +1,5 @@
 import myContext from '../context/MyContext';
-import { useContext } from 'react';
+import { useContext, useEffect } from 'react';
 import InputMask from 'react-input-mask';
 
 export default function NewUser() {
@@ -10,13 +10,24 @@ export default function NewUser() {
     const { name, value } = target;
     setNewUser({ ...newUser, [name]: value });
   };
+
+  useEffect(() => {
+    setNewUser({
+      name: '',
+      cpf: '',
+      email: '',
+      password: '',
+      confirmPassword: '',
+    });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
   return (
-    <div>
-      <h1 className="flex justify-center py-10 text-5xl font-semibold">
-        Novo usuário
-      </h1>
-      <div className="flex justify-center">
-        <form className="flex flex-col gap-6">
+    <div className="m-6">
+      <div className="box-border w-80 p-6 border-4">
+        <form className="flex flex-col gap-5">
+          <h1 className="flex justify-center text-5xl font-semibold">
+            Novo usuário
+          </h1>
           <div className="flex flex-col gap-2">
             <label htmlFor="cpf">CPF:</label>
             <InputMask

@@ -1,13 +1,14 @@
 const Joi = require('joi');
-const { sequelize } = require('../database/models');
 const models = require('../database/models');
 
 const transferService = {
   validateBody(unknown) {
     const schema = Joi.object({
       value: Joi.number().required(),
-      debitedAccountId: Joi.number().required(),
-      creditedAccountId: Joi.number().required(),
+      debitedAccountCPF: Joi.string().required(),
+      creditedAccountCPF: Joi.string().required(),
+      description: Joi.string().required(),
+      password: Joi.string().required(),
     });
 
     const { error, value } = schema.validate(unknown);
@@ -21,8 +22,16 @@ const transferService = {
   },
 
   async create(transfer) {
-    const t = await sequelize.transaction();
-    const { value, debitedAccountId, creditedAccountId } = transfer;
+    const { value, debitedAccountCPF, creditedAccountCPF, description, password } = transfer;
+    const accountCred = await models.user.findOne({ where: { cpf: creditedAccountCPF } });
+    const accountDeb = await models.user.findOne({ where: { cpf: debitedAccountCPF, password } });
+    if (!accountDeb) {
+      const error = new Error('Credentials not found');
+      error.code = 400;
+      throw error;
+    }
+    const { id: creditedAccountId } = accountCred;
+    const { id: debitedAccountId } = accountDeb;
     const debitedAccount = await models.account.findByPk(debitedAccountId);
     const creditedAccount = await models.account.findByPk(creditedAccountId);
     if (debitedAccount.balance < value) {
@@ -30,11 +39,12 @@ const transferService = {
       error.code = 400;
       throw error;
     }
-    await models.account.update({ balance: debitedAccount.balance - value }, { where: { id: debitedAccountId } }, { transaction: t });
-    await models.account.update({ balance: creditedAccount.balance + value }, { where: { id: creditedAccountId } }, { transaction: t });
-    const createTransaction = await models.transaction.create({ value, debitedAccountId, creditedAccountId }, { transaction: t });
-    await t.commit();
-    return createTransaction;
+    const newBalanceCred = creditedAccount.balance + value;
+    const newBalanceDeb = debitedAccount.balance - value;
+    await models.account.update({ balance: newBalanceDeb }, { where: { id: debitedAccountId } });
+    await models.account.update({ balance: newBalanceCred }, { where: { id: creditedAccountId } });
+    const newTransfer = await models.transaction.create({ value, debitedAccountId, creditedAccountId, description });
+    return newTransfer;
    },
 
   async getAll() { 
@@ -59,28 +69,6 @@ const transferService = {
     );
     return transfer;
   },
-
-  async update(id, transfer) {
-    const t = await sequelize.transaction();
-    const { value, debitedAccountId, creditedAccountId } = transfer;
-    const debitedAccount = await models.account.findByPk(debitedAccountId);
-    const creditedAccount = await models.account.findByPk(creditedAccountId);
-    if (debitedAccount.balance < value) {
-      const error = new Error('Insufficient funds');
-      error.code = 400;
-      throw error;
-    }
-    await models.account.update({ balance: debitedAccount.balance - value }, { where: { id: debitedAccountId } }, { transaction: t });
-    await models.account.update({ balance: creditedAccount.balance + value }, { where: { id: creditedAccountId } }, { transaction: t });
-    const updateTransaction = await models.transaction.update({ value, debitedAccountId, creditedAccountId }, { where: { id } }, { transaction: t });
-    await t.commit();
-    return updateTransaction;
-   },
-
-  async delete(id) {
-    const deletedTransfer = await models.transaction.destroy({ where: { id } });
-    return deletedTransfer;
-   },
 }
 
 module.exports = transferService;

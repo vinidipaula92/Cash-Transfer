@@ -1,5 +1,5 @@
 import myContext from '../context/MyContext';
-import { useContext } from 'react';
+import { useContext, useEffect } from 'react';
 import InputMask from 'react-input-mask';
 
 export default function Login() {
@@ -15,13 +15,17 @@ export default function Login() {
     const { name, value } = target;
     setCredential({ ...credential, [name]: value });
   };
+
+  useEffect(() => {
+    setCredential({ cpf: '', password: '' });
+  }, []);
   return (
-    <div>
-      <h1 className="flex justify-center py-10 text-5xl font-semibold">
-        Sou usuário
-      </h1>
-      <div className="flex justify-center">
-        <form className="flex flex-col gap-6">
+    <div className="m-6">
+      <div className="box-border w-80 p-6 border-4">
+        <form className="flex flex-col gap-5">
+          <h1 className="flex justify-center text-5xl font-semibold">
+            Sou usuário
+          </h1>
           <div className="flex flex-col gap-2">
             <label htmlFor="cpf">CPF:</label>
             <InputMask
@@ -44,19 +48,23 @@ export default function Login() {
             />
           </div>
           {credentialError && <p className="text-red-500">{messageError}</p>}
-          <button
-            type="button"
-            className="bg-indigo-500 text-white rounded-md p-2"
-            onClick={handleLogin}
-          >
-            Entrar
-          </button>
-          <button
-            type="button"
-            className="bg-indigo-500 text-white rounded-md p-2"
-          >
-            Esqueci minha senha
-          </button>
+          <div className="flex flex-col gap-2 py-3">
+            <button
+              type="button"
+              className="bg-indigo-500 text-white rounded-md p-2"
+              onClick={handleLogin}
+            >
+              Entrar
+            </button>
+          </div>
+          <div className="flex flex-col gap-2">
+            <button
+              type="button"
+              className="bg-indigo-500 text-white rounded-md p-2"
+            >
+              Esqueci minha senha
+            </button>
+          </div>
         </form>
       </div>
     </div>

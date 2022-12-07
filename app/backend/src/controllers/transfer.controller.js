@@ -7,7 +7,7 @@ const transferController = {
     res.status(201).json(transfer);
   },
 
-  async getAll(req, res) { 
+  async getAll(_req, res) { 
     const transfers = await transferService.getAll();
     res.status(200).json(transfers);
   },

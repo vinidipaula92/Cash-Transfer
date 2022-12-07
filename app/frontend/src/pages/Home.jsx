@@ -151,8 +151,10 @@ export default function Home() {
             </div>
           </div>
         </div>
-        <Login />
-        <NewUser />
+        <div className="flex flex-wrap flex-row justify-center items-stretch p-10">
+          <Login />
+          <NewUser />
+        </div>
       </div>
     </div>
   );

@@ -27,6 +27,7 @@ module.exports = {
       foreignKey: true,
     },
     value: Sequelize.INTEGER,
+    description: Sequelize.STRING,
     createdAt:  {
       type: Sequelize.DATE,
       field: 'created_at',

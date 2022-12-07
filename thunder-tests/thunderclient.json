@@ -4,11 +4,11 @@
     "colId": "cda062fd-2b86-4afa-9662-a86728e1160e",
     "containerId": "a27b3422-2c5c-4472-9bd6-d4f11ac9a546",
     "name": "getAll",
-    "url": "http://localhost:3001/users",
+    "url": "http://localhost:3001/users/2",
     "method": "GET",
     "sortNum": 10000,
     "created": "2022-12-05T23:45:51.127Z",
-    "modified": "2022-12-07T02:15:27.182Z",
+    "modified": "2022-12-07T20:13:53.329Z",
     "headers": [],
     "params": [],
     "body": {
@@ -46,12 +46,12 @@
     "method": "POST",
     "sortNum": 30000,
     "created": "2022-12-07T11:09:34.048Z",
-    "modified": "2022-12-07T11:32:20.269Z",
+    "modified": "2022-12-07T18:58:20.652Z",
     "headers": [],
     "params": [],
     "body": {
       "type": "json",
-      "raw": "{\n  \"value\": 200,\n  \"debitedAccountId\": 2,\n  \"creditedAccountId\": 1\n}",
+      "raw": "{\n  \"value\": 500,\n  \"debitedAccountCPF\": \"123.456.789-10\",\n  \"creditedAccountCPF\": \"987.654.321-09\",\n  \"description\": \"Valores de mercado\",\n  \"password\": \"123456\"\n}",
       "form": []
     },
     "tests": []
@@ -61,11 +61,11 @@
     "colId": "cda062fd-2b86-4afa-9662-a86728e1160e",
     "containerId": "dbe219f5-6638-4933-84bc-bc33699097ef",
     "name": "GETALL",
-    "url": "http://localhost:3001/transfers",
+    "url": "http://localhost:3001/transfers/4",
     "method": "GET",
     "sortNum": 40000,
     "created": "2022-12-07T11:36:27.972Z",
-    "modified": "2022-12-07T11:51:44.779Z",
+    "modified": "2022-12-07T19:03:37.229Z",
     "headers": [],
     "params": [],
     "tests": []
