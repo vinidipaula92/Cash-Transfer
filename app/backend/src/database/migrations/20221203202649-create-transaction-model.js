@@ -27,13 +27,13 @@ module.exports = {
       foreignKey: true,
     },
     value: Sequelize.INTEGER,
-    createAt:  {
+    createdAt:  {
       type: Sequelize.DATE,
       field: 'created_at',
     }
     }, {
       tableName: 'transactions',
-      timestamps: false,
+      updatedAt: false,
       underscored: true,
     });
   },

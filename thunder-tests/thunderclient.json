@@ -36,5 +36,38 @@
       "form": []
     },
     "tests": []
+  },
+  {
+    "_id": "5efe0fe4-dc21-47a5-89e4-726e52fdb4f7",
+    "colId": "cda062fd-2b86-4afa-9662-a86728e1160e",
+    "containerId": "dbe219f5-6638-4933-84bc-bc33699097ef",
+    "name": "create",
+    "url": "http://localhost:3001/transfers",
+    "method": "POST",
+    "sortNum": 30000,
+    "created": "2022-12-07T11:09:34.048Z",
+    "modified": "2022-12-07T11:32:20.269Z",
+    "headers": [],
+    "params": [],
+    "body": {
+      "type": "json",
+      "raw": "{\n  \"value\": 200,\n  \"debitedAccountId\": 2,\n  \"creditedAccountId\": 1\n}",
+      "form": []
+    },
+    "tests": []
+  },
+  {
+    "_id": "e0cbade4-0a98-4356-9e79-70644f89752e",
+    "colId": "cda062fd-2b86-4afa-9662-a86728e1160e",
+    "containerId": "dbe219f5-6638-4933-84bc-bc33699097ef",
+    "name": "GETALL",
+    "url": "http://localhost:3001/transfers",
+    "method": "GET",
+    "sortNum": 40000,
+    "created": "2022-12-07T11:36:27.972Z",
+    "modified": "2022-12-07T11:51:44.779Z",
+    "headers": [],
+    "params": [],
+    "tests": []
   }
 ]

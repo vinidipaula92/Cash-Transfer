@@ -8,21 +8,21 @@ const transactionModel = (sequelize, DataTypes) => {
     debitedAccountId: DataTypes.INTEGER,
     creditedAccountId: DataTypes.INTEGER,
     value: DataTypes.INTEGER,
-    createAt: DataTypes.DATE,
+    createdAt: DataTypes.DATE,
   }, {
     tableName: 'transactions',
-    updateAt: false,
+    updatedAt: false,
     underscored: true,
   });
 
   TransactionTable.associate = (models) => { 
     TransactionTable.belongsTo(models.account, {
       foreignKey: 'debitedAccountId',
-      as: 'debitedAccounts',
+      as: 'debitedAccount',
     });
   TransactionTable.belongsTo(models.account, {
     foreignKey: 'creditedAccountId',
-    as: 'creditedAccounts',
+    as: 'creditedAccount',
   });
   };
 
