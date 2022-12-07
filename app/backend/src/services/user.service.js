@@ -5,8 +5,8 @@ const models = require('../database/models');
 const userService = {
   validateBody(unknown) {
     const schema = Joi.object({
-      name: Joi.string().required(),
-      cpf: Joi.number().min(11).required(),
+      name: Joi.string().min(3).required(),
+      cpf: Joi.string().min(11).required(),
       password: Joi.string().required(),
     });
     
@@ -22,15 +22,10 @@ const userService = {
 
   async create(user) {
     const t = await sequelize.transaction();
-    try {
       const createAccountId = await models.account.create({ balance: 1000 }, { transaction: t });
       const createUserId = await models.user.create({ ...user, accountId: createAccountId.id }, { transaction: t });
       await t.commit();
       return createUserId;
-    } catch (error) {
-      await t.rollback();
-      throw error;
-    }
   },
 
   async getAll() { 
@@ -52,16 +47,6 @@ const userService = {
     const userLogin = await models.user.findOne({
       where: { cpf },
     });
-    if (!userLogin) {
-      const error = new Error('User not found');
-      error.code = 404;
-      throw error;
-    }
-    if (userLogin.password !== password) {
-      const error = new Error('Incorrect password');
-      error.code = 401;
-      throw error;
-    }
     const userBalance = await models.account.findOne({
       where: { id: userLogin.accountId },
     });
