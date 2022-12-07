@@ -22,10 +22,20 @@ const userService = {
 
   async create(user) {
     const t = await sequelize.transaction();
-      const createAccountId = await models.account.create({ balance: 1000 }, { transaction: t });
-      const createUserId = await models.user.create({ ...user, accountId: createAccountId.id }, { transaction: t });
-      await t.commit();
-      return createUserId;
+    const { cpf } = user;
+    const userExists = await models.user.findOne({
+      where: { cpf },
+    });
+    if (userExists) {
+      const error = new Error('User already exists');
+      error.code = 409;
+      throw error;
+    }
+    const createAccountId = await models.account.create({ balance: 1000 }, { transaction: t });
+    const createUserId = await models.user.create({ ...user, accountId: createAccountId.id }, { transaction: t });
+    await t.commit();
+    const { id, password, ...userWithoutPassword } = createUserId.dataValues;
+    return { ...userWithoutPassword, balance: createAccountId.balance };
   },
 
   async getAll() { 

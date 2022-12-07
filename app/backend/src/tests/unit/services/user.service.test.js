@@ -50,11 +50,12 @@ describe('User Service', () => {
 
   describe('login', () => {
     it('should return a user', async () => {
-      const user = await UserService.login(loginUser);
+      sinon.stub(user, 'findOne').returns(userExists);
 
-      expect(user).to.be.an('object');
-      expect(user).to.have.property('name', userExists.name);
-      expect(user).to.have.property('cpf', userExists.cpf);
+      expect(UserService.login(loginUser)).to.be.fulfilled;
+      expect(UserService.login(loginUser)).to.eventually.have.property('name', userExists.name);
+      expect(UserService.login(loginUser)).to.eventually.have.property('cpf', userExists.cpf);
+      expect(UserService.login(loginUser)).to.eventually.have.property('password', userExists.password);
     });
    });
 

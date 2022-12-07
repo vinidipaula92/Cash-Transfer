@@ -4,11 +4,11 @@
     "colId": "cda062fd-2b86-4afa-9662-a86728e1160e",
     "containerId": "a27b3422-2c5c-4472-9bd6-d4f11ac9a546",
     "name": "getAll",
-    "url": "http://localhost:3000/users/3",
+    "url": "http://localhost:3001/users",
     "method": "GET",
     "sortNum": 10000,
     "created": "2022-12-05T23:45:51.127Z",
-    "modified": "2022-12-06T00:28:24.444Z",
+    "modified": "2022-12-07T02:15:27.182Z",
     "headers": [],
     "params": [],
     "body": {
@@ -23,16 +23,16 @@
     "colId": "cda062fd-2b86-4afa-9662-a86728e1160e",
     "containerId": "a27b3422-2c5c-4472-9bd6-d4f11ac9a546",
     "name": "Login",
-    "url": "http://localhost:3001/users",
+    "url": "http://localhost:3001/users/create",
     "method": "POST",
     "sortNum": 20000,
     "created": "2022-12-06T20:49:13.671Z",
-    "modified": "2022-12-06T21:05:27.238Z",
+    "modified": "2022-12-07T02:11:52.702Z",
     "headers": [],
     "params": [],
     "body": {
       "type": "json",
-      "raw": "{\n  \"cpf\": \"12345678910\",\n  \"password\": \"123456\"\n}",
+      "raw": "{\n  \"cpf\": \"23142725255\",\n  \"name\": \"Vinicius de Paula Martins\",\n  \"password\": \"123456\"\n}",
       "form": []
     },
     "tests": []

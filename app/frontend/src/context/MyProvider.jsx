@@ -11,13 +11,19 @@ export default function MyProvider(props) {
     password: '',
   });
 
+  const [newUser, setNewUser] = useState({
+    cpf: '',
+    name: '',
+    password: '',
+  });
+
   const [credentialError, setCredentialError] = useState(false);
   const [messageError, setMessageError] = useState('');
+  const [userError, setUserError] = useState(false);
 
   const handleLogin = async () => {
     try {
       const data = await requestAPI('/users', credential);
-      console.log(data);
       localStorage.setItem('user', JSON.stringify(data));
       navigate('/login');
     } catch (error) {
@@ -27,6 +33,19 @@ export default function MyProvider(props) {
       } else if (error.response.status === StatusCodes.NOT_FOUND) {
         setCredentialError(true);
         setMessageError('Usuário não encontrado');
+      }
+    }
+  };
+
+  const handleRegister = async () => {
+    try {
+      const data = await requestAPI('/users/create', newUser);
+      localStorage.setItem('user', JSON.stringify(data));
+      navigate('/login');
+    } catch (error) {
+      if (error.response.status === StatusCodes.CONFLICT) {
+        setUserError(true);
+        setMessageError('CPF já cadastrado');
       }
     }
   };
@@ -40,6 +59,11 @@ export default function MyProvider(props) {
     credentialError,
     setCredentialError,
     messageError,
+    setMessageError,
+    newUser,
+    setNewUser,
+    handleRegister,
+    userError,
   };
 
   return <Provider value={data}>{children}</Provider>;

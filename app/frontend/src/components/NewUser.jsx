@@ -1,7 +1,15 @@
-import { useNavigate } from 'react-router-dom';
+import myContext from '../context/MyContext';
+import { useContext } from 'react';
+import InputMask from 'react-input-mask';
 
 export default function NewUser() {
-  const navigate = useNavigate();
+  const { newUser, setNewUser, handleRegister, userError, messageError } =
+    useContext(myContext);
+
+  const handleChange = ({ target }) => {
+    const { name, value } = target;
+    setNewUser({ ...newUser, [name]: value });
+  };
   return (
     <div>
       <h1 className="flex justify-center py-10 text-5xl font-semibold">
@@ -11,38 +19,52 @@ export default function NewUser() {
         <form className="flex flex-col gap-6">
           <div className="flex flex-col gap-2">
             <label htmlFor="cpf">CPF:</label>
-            <input
-              type="cpf"
+            <InputMask
+              className="border-2 border-gray-300 rounded-md p-2"
+              type="text"
               name="cpf"
               id="cpf"
-              className="border-2 border-gray-300 rounded-md p-2"
+              value={newUser.cpf}
+              onChange={handleChange}
+              mask="999.999.999-99"
             />
             <label htmlFor="name">Nome completo:</label>
             <input
-              type="name"
+              className="border-2 border-gray-300 rounded-md p-2"
+              type="text"
               name="name"
               id="name"
-              className="border-2 border-gray-300 rounded-md p-2"
+              value={newUser.name}
+              onChange={handleChange}
             />
             <label htmlFor="passowrd">Senha:</label>
             <input
+              className="border-2 border-gray-300 rounded-md p-2"
               type="password"
               name="password"
               id="password"
-              className="border-2 border-gray-300 rounded-md p-2"
+              value={newUser.password}
+              onChange={handleChange}
             />
-            <label htmlFor="confirmPassword">Confirme sua senha:</label>
+            {userError && <p className="text-red-500">{messageError}</p>}
+            {/* <label htmlFor="confirmPassword">Confirme sua senha:</label>
             <input
-              type="password"
-              name="confirmPassword"
-              id="confirmPassword"
               className="border-2 border-gray-300 rounded-md p-2"
-            />
+              type="password"
+              name="password"
+              id="password"
+              value={
+                newUser.confirmPassword
+                  ? newUser.confirmPassword
+                  : newUser.password
+              }
+              onChange={handleChange}
+            /> */}
           </div>
           <button
             type="button"
             className="bg-indigo-500 text-white rounded-md p-2"
-            onClick={() => navigate('/login')}
+            onClick={handleRegister}
           >
             Cadastrar
           </button>
