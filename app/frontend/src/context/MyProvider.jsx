@@ -56,6 +56,7 @@ export default function MyProvider(props) {
   };
 
   const handleRegister = async () => {
+    console.log(newUser);
     try {
       const data = await requestAPI('/users/create', newUser);
       localStorage.setItem('user', JSON.stringify(data));
@@ -69,25 +70,29 @@ export default function MyProvider(props) {
   };
 
   const handleTransfer = async () => {
-    const data = await requestAPI('/transfers', transfer);
-    console.log(data);
-    localStorage.setItem('transfer', JSON.stringify(data));
-    setTransferMessage(true);
-    setMessage('Transferência realizada com sucesso');
-    handleBalance();
+    try {
+      const data = await requestAPI('/transfers', transfer);
+      localStorage.setItem('transfer', JSON.stringify(data));
+      setTransferMessage(true);
+      setMessage('Transferência realizada com sucesso');
+    } catch (error) {
+      if (error.response.status === StatusCodes.UNAUTHORIZED) {
+        setTransferMessage(true);
+        setMessage('Senha incorreta');
+      } else if (error.response.status === StatusCodes.NOT_FOUND) {
+        setTransferMessage(true);
+        setMessage('Usuário não encontrado');
+      } else if (error.response.status === StatusCodes.BAD_REQUEST) {
+        setTransferMessage(true);
+        setMessage('Saldo insuficiente');
+      }
+    }
   };
 
   const handleInfoUser = async () => {
     const userId = JSON.parse(localStorage.getItem('user')).accountId;
     const data = await requestAll(`/users/${userId}`);
     setUser(data);
-  };
-
-  const handleBalance = async () => {
-    const transferUser = JSON.parse(localStorage.getItem('transfer')).value;
-    const balance = user.userInfo.balance;
-    const newBalance = balance - transferUser;
-    setUser({ ...data, userInfo: { balance: newBalance } });
   };
 
   const handleLogout = () => {

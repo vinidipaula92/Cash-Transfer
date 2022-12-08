@@ -15,9 +15,7 @@ export default function NewUser() {
     setNewUser({
       name: '',
       cpf: '',
-      email: '',
       password: '',
-      confirmPassword: '',
     });
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);

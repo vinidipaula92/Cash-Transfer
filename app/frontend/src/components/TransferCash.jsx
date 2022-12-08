@@ -1,6 +1,6 @@
 import InputMask from 'react-input-mask';
 import myContext from '../context/MyContext';
-import { useContext, useEffect, useState } from 'react';
+import { useContext, useEffect } from 'react';
 import BtnHome from './BtnHome';
 
 export default function TransferCash() {
@@ -14,8 +14,6 @@ export default function TransferCash() {
     handleInfoUser,
     user,
   } = useContext(myContext);
-
-  const [handler, setHandler] = useState(false);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -36,7 +34,7 @@ export default function TransferCash() {
   useEffect(() => {
     handleInfoUser();
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  }, [user]);
 
   useEffect(() => {
     if (transfer.debitedAccountCPF === '') {
@@ -44,11 +42,6 @@ export default function TransferCash() {
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [transfer]);
-
-  useEffect(() => {
-    setHandler(!handler);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [user]);
 
   return (
     <div>
