@@ -65,7 +65,7 @@ export default function Header() {
                     to="/construction"
                     className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium"
                   >
-                    Sugestões
+                    Fale conosco
                   </Link>
                 </div>
               </div>
@@ -184,7 +184,7 @@ export default function Header() {
               to="/construction"
               className="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium"
             >
-              Sugestões
+              Fale conosco
             </Link>
           </div>
           <div className="border-t border-gray-700 pt-4 pb-3">
