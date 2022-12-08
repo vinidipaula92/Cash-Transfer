@@ -5,10 +5,16 @@ require('express-async-errors');
 const errorHandlerMiddleware = require('./middlewares/errorHandlerMiddleware');
 const userRoute = require('./routes/user.route');
 const transferRoute = require('./routes/transfer.route');
+const swaggerJSDoc = require('swagger-jsdoc');
+const swaggerConfig = require('./docs/swagger.config');
+const swaggerUi = require('swagger-ui-express');
 
 const app = express();
 app.use(cors());
 app.use(express.json());
+
+const swaggerDoc = swaggerJSDoc(swaggerConfig);
+app.use('/docs', swaggerUi.serve, swaggerUi.setup(swaggerDoc));
 
 app.use('/users', userRoute);
 app.use('/transfers', transferRoute);
