@@ -21,15 +21,31 @@ const transferService = {
     return value;
   },
 
-  async create(transfer) {
-    const { value, debitedAccountCPF, creditedAccountCPF, description, password } = transfer;
-    const accountCred = await models.user.findOne({ where: { cpf: creditedAccountCPF } });
-    const accountDeb = await models.user.findOne({ where: { cpf: debitedAccountCPF, password } });
-    if (!accountDeb) {
-      const error = new Error('Credentials not found');
-      error.code = 400;
+  async userExists(cpf) {
+    const user = await models.user.findOne({ where: { cpf } });
+    if (!user) {
+      const error = new Error('User not found');
+      error.code = 404;
       throw error;
     }
+    return user;
+  },
+
+  async passwordMatches(cpf, password) {
+    const user = await models.user.findOne({ where: { cpf, password } });
+    if (!user) {
+      const error = new Error('Credentials not found');
+      error.code = 401;
+      throw error;
+    }
+    return user;
+  },
+
+  async create(transfer) {
+    const { value, debitedAccountCPF, creditedAccountCPF, description, password } = transfer;
+    const accountDeb = await this.userExists(debitedAccountCPF);
+    const accountCred = await this.userExists(creditedAccountCPF);
+    await this.passwordMatches(debitedAccountCPF, password);
     const { id: creditedAccountId } = accountCred;
     const { id: debitedAccountId } = accountDeb;
     const debitedAccount = await models.account.findByPk(debitedAccountId);
@@ -41,9 +57,16 @@ const transferService = {
     }
     const newBalanceCred = creditedAccount.balance + value;
     const newBalanceDeb = debitedAccount.balance - value;
-    await models.account.update({ balance: newBalanceDeb }, { where: { id: debitedAccountId } });
-    await models.account.update({ balance: newBalanceCred }, { where: { id: creditedAccountId } });
-    const newTransfer = await models.transaction.create({ value, debitedAccountId, creditedAccountId, description });
+    await models.account.bulkCreate([
+      { id: creditedAccountId, balance: newBalanceCred },
+      { id: debitedAccountId, balance: newBalanceDeb },
+    ], { updateOnDuplicate: ['balance'] });
+    const newTransfer = await models.transaction.create({
+      value,
+      description,
+      debitedAccountId,
+      creditedAccountId,
+    });
     return newTransfer;
    },
 
