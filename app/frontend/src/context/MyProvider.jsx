@@ -43,7 +43,7 @@ export default function MyProvider(props) {
     try {
       const data = await requestAPI('/users', credential);
       localStorage.setItem('user', JSON.stringify(data));
-      navigate('/login');
+      navigate('/transfer');
     } catch (error) {
       if (error.response.status === StatusCodes.UNAUTHORIZED) {
         setCredentialError(true);

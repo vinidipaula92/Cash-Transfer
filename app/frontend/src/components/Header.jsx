@@ -39,13 +39,22 @@ export default function Header() {
                   >
                     Home
                   </Link>
-
-                  <Link
-                    to="/transfer"
-                    className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium"
-                  >
-                    Transferência
-                  </Link>
+                  {userExists ? (
+                    <Link
+                      to="/transfer"
+                      className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium"
+                    >
+                      Transferência
+                    </Link>
+                  ) : (
+                    <Link
+                      to="/construction"
+                      className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium"
+                      disabled
+                    >
+                      Transferência
+                    </Link>
+                  )}
 
                   <Link
                     to="/construction"
@@ -158,13 +167,22 @@ export default function Header() {
             >
               Home
             </Link>
-
-            <Link
-              to="/transfer"
-              className="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium"
-            >
-              Transferência
-            </Link>
+            {userExists ? (
+              <Link
+                to="/transfer"
+                className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium"
+              >
+                Transferência
+              </Link>
+            ) : (
+              <Link
+                to="/construction"
+                className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium"
+                disabled
+              >
+                Transferência
+              </Link>
+            )}
 
             <Link
               to="/construction"
