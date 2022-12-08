@@ -1,22 +1,11 @@
 require('dotenv').config();
 
-const environment = process.env.NODE_ENV || "test";
-
-const suffix = {
-  prod: "",
-  production: "",
-  dev: "-dev",
-  development: "-dev",
-  test: "-test",
-};
-
 const options = {
-  host: process.env.HOSTNAME || process.env.MYSQL_HOST || 'localhost',
-  port: process.env.MYSQL_PORT || '3307',
-  database: 
-    `${process.env.MYSQL_DB_NAME || 'donus'}${suffix[environment] || suffix.test}`,
-  username: process.env.MYSQL_USER || 'root',
-  password: process.env.MYSQL_PASSWORD || 'root',
+  username: process.env.DB_USER,
+  password: process.env.MYSQL_ROOT_PASSWORD,
+  database: process.env.DB_NAME|| 'cash_transfers',
+  host: process.env.DB_HOST,
+  port: Number(process.env.DB_PORT) || 3307 || 3002,
   dialect: 'mysql',
   dialectOptions: {
     timezone: 'Z',
@@ -25,13 +14,6 @@ const options = {
 };
 
 module.exports = {
-  development: {
-    ...options,
-  },
-  test: {
-    ...options,
-  },
-  production: {
-    ...options,
-  },
+  development: options,
 };
+

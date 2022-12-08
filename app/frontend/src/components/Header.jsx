@@ -33,7 +33,7 @@ export default function Header() {
               <div className="hidden md:block">
                 <div className="ml-10 flex items-baseline space-x-4">
                   <Link
-                    to="/login"
+                    to="/"
                     className="bg-gray-900 text-white px-3 py-2 rounded-md text-sm font-medium"
                     aria-current="page"
                   >
@@ -41,7 +41,7 @@ export default function Header() {
                   </Link>
 
                   <Link
-                    to="/construction"
+                    to="/transfer"
                     className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium"
                   >
                     Transferência
@@ -152,7 +152,7 @@ export default function Header() {
           <div className="space-y-1 px-2 pt-2 pb-3 sm:px-3">
             {/* <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" --> */}
             <Link
-              to="/construction"
+              to="/"
               className="bg-gray-900 text-white block px-3 py-2 rounded-md text-base font-medium"
               aria-current="page"
             >
@@ -160,7 +160,7 @@ export default function Header() {
             </Link>
 
             <Link
-              to="/construction"
+              to="/transfer"
               className="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium"
             >
               Transferência
