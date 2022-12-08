@@ -178,7 +178,7 @@ Utilizei a ferramenta Swagger para documentar toda a API que foi desenvolvida ne
 Você pode rodar ela juntamente com o projeto:
 - Ao rodar a porta 3001, basta ir para o localhost acessando `http://localhost:3001/docs` e terá acesso a todos endpoints com seus respectivos retorno esperados.
 
-![Swagger](assets/swagger.png)
+![Swagger](assets/documentacao-api.png)
 
 </details>
 
