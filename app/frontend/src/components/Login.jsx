@@ -1,6 +1,7 @@
 import myContext from '../context/MyContext';
 import { useContext, useEffect } from 'react';
 import InputMask from 'react-input-mask';
+import { useNavigate } from 'react-router-dom';
 
 export default function Login() {
   const {
@@ -11,6 +12,8 @@ export default function Login() {
     messageError,
   } = useContext(myContext);
 
+  const navigate = useNavigate();
+
   const handleChange = ({ target }) => {
     const { name, value } = target;
     setCredential({ ...credential, [name]: value });
@@ -20,7 +23,7 @@ export default function Login() {
     setCredential({ cpf: '', password: '' });
   }, []);
   return (
-    <div className="m-6">
+    <div className="m-6 bg-indigo-100">
       <div className="box-border w-80 p-6 border-4">
         <form className="flex flex-col gap-5">
           <h1 className="flex justify-center text-5xl font-semibold">
@@ -29,7 +32,7 @@ export default function Login() {
           <div className="flex flex-col gap-2">
             <label htmlFor="cpf">CPF:</label>
             <InputMask
-              className="border-2 border-gray-300 rounded-md p-2"
+              className="border-2 border-indigo-100 rounded-md p-2"
               type="text"
               name="cpf"
               id="cpf"
@@ -39,7 +42,7 @@ export default function Login() {
             />
             <label htmlFor="password">Senha:</label>
             <input
-              className="border-2 border-gray-300 rounded-md p-2"
+              className="border-2 border-indigo-100 rounded-md p-2"
               type="password"
               name="password"
               id="password"
@@ -61,6 +64,7 @@ export default function Login() {
             <button
               type="button"
               className="bg-indigo-500 text-white rounded-md p-2"
+              onClick={() => navigate('/construction')}
             >
               Esqueci minha senha
             </button>

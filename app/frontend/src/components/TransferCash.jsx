@@ -1,7 +1,6 @@
 import InputMask from 'react-input-mask';
 import myContext from '../context/MyContext';
 import { useContext, useEffect } from 'react';
-import BtnHome from './BtnHome';
 
 export default function TransferCash() {
   const {
@@ -45,7 +44,6 @@ export default function TransferCash() {
 
   return (
     <div>
-      <BtnHome />
       <h1 className="flex justify-center py-10 text-5xl font-semibold">
         Bem vindo, {user.name}
       </h1>
