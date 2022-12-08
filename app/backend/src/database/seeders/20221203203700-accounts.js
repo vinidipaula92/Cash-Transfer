@@ -10,7 +10,7 @@ module.exports = {
       },
       {
         id: 2,
-        balance: 1000,
+        balance: 11000,
       },
       ],
       {timestamps: false});

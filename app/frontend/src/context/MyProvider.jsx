@@ -71,10 +71,15 @@ export default function MyProvider(props) {
 
   const handleTransfer = async () => {
     try {
-      const data = await requestAPI('/transfers', transfer);
-      localStorage.setItem('transfer', JSON.stringify(data));
-      setTransferMessage(true);
-      setMessage('Transferência realizada com sucesso');
+      if (transfer.value > 2000) {
+        setTransferMessage(true);
+        setMessage('Valor máximo é de R$ 2000,00');
+      } else {
+        const data = await requestAPI('/transfers', transfer);
+        localStorage.setItem('transfer', JSON.stringify(data));
+        setTransferMessage(true);
+        setMessage('Transferência realizada com sucesso');
+      }
     } catch (error) {
       if (error.response.status === StatusCodes.UNAUTHORIZED) {
         setTransferMessage(true);

@@ -21,6 +21,7 @@ export default function Login() {
 
   useEffect(() => {
     setCredential({ cpf: '', password: '' });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
   return (
     <div className="m-6 bg-indigo-100">

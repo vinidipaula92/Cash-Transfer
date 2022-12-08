@@ -37,6 +37,13 @@ export default function Header() {
                     className="bg-gray-900 text-white px-3 py-2 rounded-md text-sm font-medium"
                     aria-current="page"
                   >
+                    Home
+                  </Link>
+
+                  <Link
+                    to="/construction"
+                    className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium"
+                  >
                     Transferência
                   </Link>
 
@@ -44,28 +51,21 @@ export default function Header() {
                     to="/construction"
                     className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium"
                   >
-                    Team
+                    Extrato
                   </Link>
 
                   <Link
                     to="/construction"
                     className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium"
                   >
-                    Projects
+                    Saldo
                   </Link>
 
                   <Link
                     to="/construction"
                     className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium"
                   >
-                    Calendar
-                  </Link>
-
-                  <Link
-                    to="/construction"
-                    className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium"
-                  >
-                    Reports
+                    Sugestões
                   </Link>
                 </div>
               </div>
@@ -83,13 +83,13 @@ export default function Header() {
                     xmlns="http://www.w3.org/2000/svg"
                     fill="none"
                     viewBox="0 0 24 24"
-                    stroke-width="1.5"
+                    strokeWidth="1.5"
                     stroke="currentColor"
                     aria-hidden="true"
                   >
                     <path
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
                       d="M14.857 17.082a23.848 23.848 0 005.454-1.31A8.967 8.967 0 0118 9.75v-.7V9A6 6 0 006 9v.75a8.967 8.967 0 01-2.312 6.022c1.733.64 3.56 1.085 5.455 1.31m5.714 0a24.255 24.255 0 01-5.714 0m5.714 0a3 3 0 11-5.714 0"
                     />
                   </svg>
@@ -98,12 +98,12 @@ export default function Header() {
                   <div>
                     <button
                       type="button"
-                      class="flex max-w-xs items-center rounded-full bg-gray-800 text-sm focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800"
+                      className="flex max-w-xs items-center rounded-full bg-gray-800 text-sm focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800"
                       id="user-menu-button"
                       aria-expanded="false"
                       aria-haspopup="true"
                     >
-                      <span class="sr-only">Open user menu</span>
+                      <span className="sr-only">Open user menu</span>
                       <img
                         className="h-8 w-8 rounded-full"
                         src={profile}
@@ -113,18 +113,18 @@ export default function Header() {
                   </div>
                   {userExists ? (
                     <div
-                      class="absolute right-0 z-10 mt-2 w-48 origin-top-right rounded-md bg-white py-1 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none"
+                      className="absolute right-0 z-10 mt-2 w-48 origin-top-right rounded-md bg-white py-1 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none"
                       role="menu"
                       aria-orientation="vertical"
                       aria-labelledby="user-menu-button"
-                      tabindex="-1"
+                      tabIndex="-1"
                     >
                       {/* <!-- Active: "bg-gray-100", Not Active: "" --> */}
                       <Link
                         to="/construction"
-                        class="block px-4 py-2 text-sm text-gray-700"
+                        className="block px-4 py-2 text-sm text-gray-700"
                         role="menuitem"
-                        tabindex="-1"
+                        tabIndex="-1"
                         id="user-menu-item-0"
                       >
                         Your Profile
@@ -132,9 +132,9 @@ export default function Header() {
                       <button
                         onClick={handleLogout}
                         type="button"
-                        class="block px-4 py-2 text-sm text-gray-700"
+                        className="block px-4 py-2 text-sm text-gray-700"
                         role="menuitem"
-                        tabindex="-1"
+                        tabIndex="-1"
                         id="user-menu-item-2"
                       >
                         Sign out
@@ -156,6 +156,13 @@ export default function Header() {
               className="bg-gray-900 text-white block px-3 py-2 rounded-md text-base font-medium"
               aria-current="page"
             >
+              Home
+            </Link>
+
+            <Link
+              to="/construction"
+              className="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium"
+            >
               Transferência
             </Link>
 
@@ -163,28 +170,21 @@ export default function Header() {
               to="/construction"
               className="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium"
             >
-              Team
+              Extrato
             </Link>
 
             <Link
               to="/construction"
               className="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium"
             >
-              Projects
+              Saldo
             </Link>
 
             <Link
               to="/construction"
               className="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium"
             >
-              Calendar
-            </Link>
-
-            <Link
-              to="/construction"
-              className="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium"
-            >
-              Reports
+              Sugestões
             </Link>
           </div>
           <div className="border-t border-gray-700 pt-4 pb-3">
@@ -213,13 +213,13 @@ export default function Header() {
                   xmlns="http://www.w3.org/2000/svg"
                   fill="none"
                   viewBox="0 0 24 24"
-                  stroke-width="1.5"
+                  strokeWidth="1.5"
                   stroke="currentColor"
                   aria-hidden="true"
                 >
                   <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
                     d="M14.857 17.082a23.848 23.848 0 005.454-1.31A8.967 8.967 0 0118 9.75v-.7V9A6 6 0 006 9v.75a8.967 8.967 0 01-2.312 6.022c1.733.64 3.56 1.085 5.455 1.31m5.714 0a24.255 24.255 0 01-5.714 0m5.714 0a3 3 0 11-5.714 0"
                   />
                 </svg>
