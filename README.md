@@ -84,8 +84,6 @@ O projeto é composto de 4 entidades importantes na sua estrutura:
 
 <details>
 
-<details>
-
 <summary><strong>🕵️ Linter</strong></summary><br />
 
 Para garantir a qualidade do código, usei o [ESLint](https://eslint.org/) para fazer a sua análise estática.
