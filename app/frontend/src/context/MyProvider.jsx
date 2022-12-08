@@ -56,7 +56,6 @@ export default function MyProvider(props) {
   };
 
   const handleRegister = async () => {
-    console.log(newUser);
     try {
       const data = await requestAPI('/users/create', newUser);
       localStorage.setItem('user', JSON.stringify(data));

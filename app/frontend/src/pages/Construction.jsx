@@ -1,10 +1,12 @@
 import { useNavigate } from 'react-router-dom';
 import { construction } from '../assets/images';
+import Header from '../components/Header';
 
 export default function Construction() {
   const navigate = useNavigate();
   return (
     <div>
+      <Header />
       <div className="m-24 flex justify-center">
         <div className="box-border w-96 p-6 border-4">
           <h1 className="flex justify-center text-3xl font-semibold">

@@ -1,6 +1,6 @@
 import InputMask from 'react-input-mask';
 import myContext from '../context/MyContext';
-import { useContext, useEffect } from 'react';
+import { useContext, useEffect, useState } from 'react';
 
 export default function TransferCash() {
   const {
@@ -13,6 +13,8 @@ export default function TransferCash() {
     handleInfoUser,
     user,
   } = useContext(myContext);
+
+  const [disabled, setDisabled] = useState(false);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -30,6 +32,12 @@ export default function TransferCash() {
     setTransferMessage(false);
   };
 
+  const handleDisable = () => {
+    if (user.userInfo.balance <= 0) {
+      setDisabled(true);
+    }
+  };
+
   useEffect(() => {
     handleInfoUser();
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -41,6 +49,11 @@ export default function TransferCash() {
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [transfer]);
+
+  useEffect(() => {
+    handleDisable();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  });
 
   return (
     <div>
@@ -107,11 +120,16 @@ export default function TransferCash() {
                 </>
               ) : (
                 <button
-                  className="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded"
+                  className={
+                    disabled
+                      ? 'bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded opacity-50 cursor-not-allowed'
+                      : 'bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded'
+                  }
                   type="button"
                   onClick={handleTransfer}
+                  disabled={disabled}
                 >
-                  Transferir
+                  {disabled ? 'Saldo insuficiente' : 'Transferir'}
                 </button>
               )}
             </div>

@@ -45,12 +45,13 @@ export default function Information() {
                 </div>
                 <div className="sm:min-w-0 sm:flex-1">
                   <p className="text-lg font-semibold leading-8 text-gray-900">
-                    Melhores taxas do mercado
+                    Facilidade de transferência
                   </p>
                   <p className="mt-2 text-base leading-7 text-gray-600">
-                    Nossas taxas são baixas e você pode transferir dinheiro para
-                    qualquer lugar do mundo. Fazer transferências internacionais
-                    nunca foram tão fáceis.
+                    Faça transferências entre contas de forma rápida e segura.
+                    Sem burocracia e sem taxas. você pode transferir dinheiro
+                    para qualquer lugar do mundo. Fazer transferências
+                    internacionais nunca foram tão fáceis.
                   </p>
                 </div>
               </div>
@@ -79,9 +80,11 @@ export default function Information() {
                     Sem taxas ocultas
                   </p>
                   <p className="mt-2 text-base leading-7 text-gray-600">
-                    Nossa estrutura de taxas é transparente e você pode vê-las
-                    antes mesmo de fazer uma transferência. Nós não cobramos
-                    taxas ocultas.
+                    Taxa ZERO para qualquer de transferência que queira fazer.
+                    Você não paga nada para transferir dinheiro para qualquer
+                    lugar do mundo. Não há taxas ocultas, não há taxas de
+                    conversão, não há taxas de transação. Você paga apenas o
+                    valor que você quer transferir.
                   </p>
                 </div>
               </div>

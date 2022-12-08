@@ -1,7 +1,7 @@
 import { Route, Routes } from 'react-router-dom';
 import Home from '../pages/Home';
 import User from '../pages/User';
-import Construction from './Construction';
+import Construction from '../pages/Construction';
 
 export default function Routers() {
   return (
