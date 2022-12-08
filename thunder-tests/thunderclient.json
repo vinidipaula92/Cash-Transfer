@@ -61,11 +61,11 @@
     "colId": "cda062fd-2b86-4afa-9662-a86728e1160e",
     "containerId": "dbe219f5-6638-4933-84bc-bc33699097ef",
     "name": "GETALL",
-    "url": "http://localhost:3001/transfers",
+    "url": "http://localhost:3001/transfers/1",
     "method": "GET",
     "sortNum": 40000,
     "created": "2022-12-07T11:36:27.972Z",
-    "modified": "2022-12-08T01:01:11.633Z",
+    "modified": "2022-12-08T19:10:11.071Z",
     "headers": [],
     "params": [],
     "tests": []

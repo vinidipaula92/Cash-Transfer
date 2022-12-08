@@ -43,9 +43,9 @@ const transferService = {
 
   async create(transfer) {
     const { value, debitedAccountCPF, creditedAccountCPF, description, password } = transfer;
-    const accountDeb = await this.userExists(debitedAccountCPF);
-    const accountCred = await this.userExists(creditedAccountCPF);
-    await this.passwordMatches(debitedAccountCPF, password);
+    const accountDeb = await transferService.userExists(debitedAccountCPF);
+    const accountCred = await transferService.userExists(creditedAccountCPF);
+    await transferService.passwordMatches(debitedAccountCPF, password);
     const { id: creditedAccountId } = accountCred;
     const { id: debitedAccountId } = accountDeb;
     const debitedAccount = await models.account.findByPk(debitedAccountId);

@@ -8,7 +8,6 @@ chai.use(chaiAsPromised);
 
 const { expect } = chai;
 
-const { user } = require('../../../database/models');
 const UserController = require('../../../controllers/user.controller');
 const UserService = require('../../../services/user.service');
 
