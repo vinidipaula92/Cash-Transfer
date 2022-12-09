@@ -2,34 +2,49 @@
 
 ## Stack utilizada
 
-**Front-end**
+<details><summary><strong>Front-end</strong></summary>
 
 - React JS;
 - Tailwind
+</details>
 
-**Back-end:**
+
+<details><summary><strong>Back-end</strong></summary>
 
 - NodeJs;
 - Express;
 - Sequelize;
 
-**Testes**
+</details>
+
+<details><summary><strong>Testes</strong></summary>
 
 - Mocha, Chai e Sinon;
 - RTL (React Testing Library);
 
-**Banco de dados**
+</details>
+
+<details><summary><strong>Banco de dados</strong></summary>
 
 - MySQL;
 
-**Aplicação Conteinerizada**
+</details>
+
+<details><summary><strong>Aplicação Conteinerizada</strong></summary>
 
 - Docker;
+
+</details>
+
+### Desenvolvimento
 
 <details>
   <summary><strong>👨‍💻 O que foi desenvolvido</strong></summary>
 
 O `Cash Transfer` é um site para fazermos transferências de dinheiro entre contas!
+
+
+![Exemplo!](assets/cash-transfer.png)
 
 1. Foi desenvolvido o `Cash Transfer`, onde fiquei responsável por desenvolver uma API e também integrar as aplicações para que elas funcionem consumindo um banco de dados.
 
