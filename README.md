@@ -44,7 +44,7 @@
 O `Cash Transfer` é um site para fazermos transferências de dinheiro entre contas!
 
 
-![Exemplo!](assets/cash-transfer.png)
+![Exemplo!](assets/cash-transfer.gif)
 
 1. Foi desenvolvido o `Cash Transfer`, onde fiquei responsável por desenvolver uma API e também integrar as aplicações para que elas funcionem consumindo um banco de dados.
 
