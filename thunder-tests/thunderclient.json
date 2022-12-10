@@ -27,12 +27,12 @@
     "method": "POST",
     "sortNum": 20000,
     "created": "2022-12-06T20:49:13.671Z",
-    "modified": "2022-12-08T22:30:56.816Z",
+    "modified": "2022-12-10T19:38:52.446Z",
     "headers": [],
     "params": [],
     "body": {
       "type": "json",
-      "raw": "{\n  \"cpf\": \"231.427.252-55\",\n  \"password\": \"123456\"\n}",
+      "raw": "{\n  \"cpf\": \"123.456.789-10\",\n  \"password\": \"vinicius\"\n}",
       "form": []
     },
     "tests": []

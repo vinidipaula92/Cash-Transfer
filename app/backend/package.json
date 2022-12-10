@@ -4,11 +4,14 @@
   "description": "App de transações bancárias",
   "main": "./src/app.js",
   "scripts": {
+    "build": "/bin/sh tsc_eval.sh",
     "start": "node .",
     "test": "mocha src/tests/**/*$NAME*.test.js --exit",
     "test:coverage": "nyc --all npm run test",
     "dev": "nodemon --watch \"./src/**\" ./src/app.js",
-    "db:reset": "npx sequelize-cli db:drop && npx sequelize-cli db:create && npx sequelize-cli db:migrate && npx sequelize-cli db:seed:all"
+    "db:reset": "npx sequelize-cli db:drop && npx sequelize-cli db:create && npx sequelize-cli db:migrate && npx sequelize-cli db:seed:all",
+    "prestart": "npm run build && npm run db:reset",
+    "predev": "npm run build && npm run db:reset"
   },
   "keywords": [],
   "author": "",
