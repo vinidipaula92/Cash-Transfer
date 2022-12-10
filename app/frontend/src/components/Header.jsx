@@ -60,14 +60,7 @@ export default function Header() {
                     to="/construction"
                     className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium"
                   >
-                    Extrato
-                  </Link>
-
-                  <Link
-                    to="/construction"
-                    className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium"
-                  >
-                    Saldo
+                    Saldo e Extrato
                   </Link>
 
                   <Link
@@ -188,14 +181,7 @@ export default function Header() {
               to="/construction"
               className="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium"
             >
-              Extrato
-            </Link>
-
-            <Link
-              to="/construction"
-              className="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium"
-            >
-              Saldo
+              Saldo e Extrato
             </Link>
 
             <Link
