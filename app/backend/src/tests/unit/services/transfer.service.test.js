@@ -53,32 +53,4 @@ describe('Transfer Service', () => {
       expect(TransferService.getById(1)).to.be.fulfilled;
     });
   });
-
-  describe('userExists', () => { 
-    it('should return a user', async () => {
-      sinon.stub(user, 'findOne').returns(userExists);
-
-      expect(TransferService.userExists(userExists)).to.be.fulfilled;
-    });
-
-    it('should return an error "User not found" ', async () => {
-      sinon.stub(user, 'findOne').returns(null);
-
-      expect(TransferService.userExists(userExists)).to.be.rejected;
-     });
-  });
-
-  describe('passwordMatches', () => {
-    it('should return a user', async () => {
-      sinon.stub(user, 'findOne').returns(userExists);
-
-      expect(TransferService.passwordMatches(userExists)).to.be.fulfilled;
-    });
-
-    it('should return an error "Credentials not found" ', async () => { 
-      sinon.stub(user, 'findOne').returns(null);
-
-      expect(TransferService.passwordMatches(userExists)).to.be.rejected;
-    });
-  });
 });

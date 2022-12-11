@@ -22,6 +22,11 @@ const accountModel = (sequelize, DataTypes) => {
     foreignKey: 'creditedAccountId',
     as: 'creditedTransactions',
   });
+    
+  AccountTable.hasOne(models.user, {
+    foreignKey: 'accountId',
+    as: 'userInfo',
+  });
 }
   return AccountTable;
 };

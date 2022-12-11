@@ -1,5 +1,6 @@
 const Joi = require('joi');
 const models = require('../database/models');
+const userService = require('./user.service');
 
 const transferService = {
   validateBody(unknown) {
@@ -21,31 +22,13 @@ const transferService = {
     return value;
   },
 
-  async userExists(cpf) {
-    const user = await models.user.findOne({ where: { cpf } });
-    if (!user) {
-      const error = new Error('User not found');
-      error.code = 404;
-      throw error;
-    }
-    return user;
-  },
 
-  async passwordMatches(cpf, password) {
-    const user = await models.user.findOne({ where: { cpf, password } });
-    if (!user) {
-      const error = new Error('Credentials not found');
-      error.code = 401;
-      throw error;
-    }
-    return user;
-  },
 
   async create(transfer) {
     const { value, debitedAccountCPF, creditedAccountCPF, description, password } = transfer;
-    const accountDeb = await transferService.userExists(debitedAccountCPF);
-    const accountCred = await transferService.userExists(creditedAccountCPF);
-    await transferService.passwordMatches(debitedAccountCPF, password);
+    const accountDeb = await userService.userExists(debitedAccountCPF);
+    const accountCred = await userService.userExists(creditedAccountCPF);
+    await userService.passwordMatches(debitedAccountCPF, password);
     const { id: creditedAccountId } = accountCred;
     const { id: debitedAccountId } = accountDeb;
     const debitedAccount = await models.account.findByPk(debitedAccountId);

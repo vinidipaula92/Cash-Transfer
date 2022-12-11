@@ -5,6 +5,7 @@ require('express-async-errors');
 const errorHandlerMiddleware = require('./middlewares/errorHandlerMiddleware');
 const userRoute = require('./routes/user.route');
 const transferRoute = require('./routes/transfer.route');
+const accountRoute = require('./routes/account.route');
 const swaggerJSDoc = require('swagger-jsdoc');
 const swaggerConfig = require('./docs/swagger.config');
 const swaggerUi = require('swagger-ui-express');
@@ -18,6 +19,7 @@ app.use('/docs', swaggerUi.serve, swaggerUi.setup(swaggerDoc));
 
 app.use('/users', userRoute);
 app.use('/transfers', transferRoute);
+app.use('/accounts', accountRoute);
 app.use(errorHandlerMiddleware);
 
 app.listen(process.env.API_PORT, () => console.log('API rodando na porta 3001'));

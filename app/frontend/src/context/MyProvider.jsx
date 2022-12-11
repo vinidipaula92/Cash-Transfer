@@ -32,12 +32,14 @@ export default function MyProvider(props) {
       balance: 0,
     },
   });
+  const [statement, setStatement] = useState([]);
 
   const [credentialError, setCredentialError] = useState(false);
   const [messageError, setMessageError] = useState('');
   const [userError, setUserError] = useState(false);
   const [transferMessage, setTransferMessage] = useState(false);
   const [message, setMessage] = useState('');
+  const [loading, setLoading] = useState(true);
 
   const handleLogin = async () => {
     try {
@@ -99,6 +101,13 @@ export default function MyProvider(props) {
     setUser(data);
   };
 
+  const handleStatement = async () => {
+    const userId = JSON.parse(localStorage.getItem('user')).accountId;
+    const data = await requestAll(`/accounts/${userId}`);
+    setStatement(data);
+    setLoading(false);
+  };
+
   const handleLogout = () => {
     localStorage.clear();
     navigate('/');
@@ -127,6 +136,9 @@ export default function MyProvider(props) {
     user,
     handleInfoUser,
     handleLogout,
+    handleStatement,
+    statement,
+    loading,
   };
 
   return <Provider value={data}>{children}</Provider>;

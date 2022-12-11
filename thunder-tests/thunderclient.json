@@ -46,12 +46,12 @@
     "method": "POST",
     "sortNum": 30000,
     "created": "2022-12-07T11:09:34.048Z",
-    "modified": "2022-12-08T23:09:32.456Z",
+    "modified": "2022-12-10T22:51:22.482Z",
     "headers": [],
     "params": [],
     "body": {
       "type": "json",
-      "raw": "{\n  \"value\": 400,\n  \"debitedAccountCPF\": \"123.456.789-10\",\n  \"creditedAccountCPF\": \"987.654.321-09\",\n  \"description\": \"Valores de mercado\",\n  \"password\": \"vinicius\"\n}",
+      "raw": "{\n  \"value\": 200,\n  \"debitedAccountCPF\": \"123.456.789-10\",\n  \"creditedAccountCPF\": \"987.654.321-09\",\n  \"description\": \"Valores de mercado\",\n  \"password\": \"vinicius\"\n}",
       "form": []
     },
     "tests": []
@@ -61,11 +61,25 @@
     "colId": "cda062fd-2b86-4afa-9662-a86728e1160e",
     "containerId": "dbe219f5-6638-4933-84bc-bc33699097ef",
     "name": "GETALL",
-    "url": "http://localhost:3001/transfers/1",
+    "url": "http://localhost:3001/transfers",
     "method": "GET",
     "sortNum": 40000,
     "created": "2022-12-07T11:36:27.972Z",
-    "modified": "2022-12-08T23:26:49.270Z",
+    "modified": "2022-12-10T22:39:42.949Z",
+    "headers": [],
+    "params": [],
+    "tests": []
+  },
+  {
+    "_id": "1e2a181f-9890-4b29-8270-42d80dd4c2cf",
+    "colId": "cda062fd-2b86-4afa-9662-a86728e1160e",
+    "containerId": "0a15b3f7-fb98-4fc0-821a-bb72cb0a0d56",
+    "name": "getById",
+    "url": "http://localhost:3001/accounts/1",
+    "method": "GET",
+    "sortNum": 50000,
+    "created": "2022-12-10T21:41:42.275Z",
+    "modified": "2022-12-10T21:41:57.537Z",
     "headers": [],
     "params": [],
     "tests": []

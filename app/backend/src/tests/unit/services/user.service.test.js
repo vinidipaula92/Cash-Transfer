@@ -68,5 +68,33 @@ describe('User Service', () => {
       expect(user).to.have.property('cpf', createUser.cpf);
       expect(user).to.have.property('password', createUser.password);
     });
-   });
+  });
+  
+    describe('userExists', () => { 
+    it('should return a user', async () => {
+      sinon.stub(user, 'findOne').returns(userExists);
+
+      expect(UserService.userExists(userExists)).to.be.fulfilled;
+    });
+
+    it('should return an error "User not found" ', async () => {
+      sinon.stub(user, 'findOne').returns(null);
+
+      expect(UserService.userExists(userExists)).to.be.rejected;
+     });
+  });
+
+  describe('passwordMatches', () => {
+    it('should return a user', async () => {
+      sinon.stub(user, 'findOne').returns(userExists);
+
+      expect(UserService.passwordMatches(userExists)).to.be.fulfilled;
+    });
+
+    it('should return an error "Credentials not found" ', async () => { 
+      sinon.stub(user, 'findOne').returns(null);
+
+      expect(UserService.passwordMatches(userExists)).to.be.rejected;
+    });
+  });
 });

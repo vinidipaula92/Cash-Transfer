@@ -20,6 +20,26 @@ const userService = {
     return value;
   },
 
+  async userExists(cpf) {
+    const user = await models.user.findOne({ where: { cpf } });
+    if (!user) {
+      const error = new Error('User not found');
+      error.code = 404;
+      throw error;
+    }
+    return user;
+  },
+
+  async passwordMatches(cpf, password) {
+    const user = await models.user.findOne({ where: { cpf, password } });
+    if (!user) {
+      const error = new Error('Credentials not found');
+      error.code = 401;
+      throw error;
+    }
+    return user;
+  },
+
   async create(user) {
     const t = await sequelize.transaction();
     const { cpf } = user;
