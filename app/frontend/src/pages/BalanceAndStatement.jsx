@@ -26,22 +26,27 @@ export default function BalanceAndStatement() {
       ) : (
         <div>
           <div className="flex justify-center">
-            <h4 className="flex justify-center py-6">
-              <p>
-                Extrato retirado no dia:{' '}
-                {moment(
-                  Date(statement.lastTransactionDate).toLocaleString('pt-BR', {
-                    timeZone: 'UTC',
-                  }),
-                ).format('DD/MM/YYYY HH:mm:ss')}
-              </p>
-            </h4>
+            <div className="box-border w-96 p-6 border-4">
+              <h4 className="flex justify-center py-6">
+                <p>
+                  Extrato retirado no dia:{' '}
+                  {moment(
+                    Date(statement.lastTransactionDate).toLocaleString(
+                      'pt-BR',
+                      {
+                        timeZone: 'UTC',
+                      },
+                    ),
+                  ).format('DD/MM/YYYY HH:mm:ss')}
+                </p>
+              </h4>
+            </div>
           </div>
-          <div className="flex justify-center py-6">
-            <div className="flex justify-center py-6">
+          <div className="relative inline-block text-left">
+            <div>
               <button
                 type="button"
-                class="flex justify-center items-center px-4 py-2 border border-gray-300 shadow-sm text-sm font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+                className="inline-flex justify-center w-full rounded-md border border-gray-300 shadow-sm px-4 py-2 bg-white text-sm font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
                 id="menu-button"
                 aria-expanded="true"
                 aria-haspopup="true"
@@ -50,7 +55,7 @@ export default function BalanceAndStatement() {
                 Filtrar
                 {/* <!-- Heroicon name: mini/chevron-down --> */}
                 <svg
-                  class="-mr-1 ml-2 h-5 w-5"
+                  className="-mr-1 ml-2 h-5 w-5"
                   xmlns="http://www.w3.org/2000/svg"
                   viewBox="0 0 20 20"
                   fill="currentColor"
@@ -76,31 +81,31 @@ export default function BalanceAndStatement() {
       To: "transform opacity-0 scale-95"
   --> */}
             <div
-              class={
+              className={
                 show
                   ? 'origin-top-right absolute right-0 mt-2 w-56 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 focus:outline-none'
                   : 'hidden origin-top-right absolute right-0 mt-2 w-56 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 focus:outline-none'
               }
               aria-orientation="vertical"
               aria-labelledby="menu-button"
-              tabindex="-1"
+              tabIndex="-1"
             >
-              <div class="py-1" role="none">
+              <div className="py-1" role="none">
                 {/* <!-- Active: "bg-gray-100 text-gray-900", Not Active: "text-gray-700" --> */}
                 <button
                   href="#"
-                  class="flex justify-center text-gray-700 px-4 py-2 text-sm"
+                  className="text-gray-700 block px-4 py-2 text-sm"
                   role="menuitem"
-                  tabindex="-1"
+                  tabIndex="-1"
                   id="menu-item-0"
                 >
                   Débitos
                 </button>
                 <button
                   href="#"
-                  class="text-gray-700 flex justify-center px-4 py-2 text-sm"
+                  className="text-gray-700 block px-4 py-2 text-sm"
                   role="menuitem"
-                  tabindex="-1"
+                  tabIndex="-1"
                   id="menu-item-1"
                 >
                   Créditos
