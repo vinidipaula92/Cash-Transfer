@@ -57,7 +57,7 @@ export default function Header() {
                   )}
 
                   <Link
-                    to="/balance"
+                    to="/construction"
                     className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium"
                   >
                     Saldo e Extrato
@@ -178,7 +178,7 @@ export default function Header() {
             )}
 
             <Link
-              to="/balance"
+              to="/construction"
               className="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium"
             >
               Saldo e Extrato
