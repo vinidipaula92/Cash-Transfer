@@ -53,11 +53,11 @@ O `Cash Transfer` é um site para fazermos transferências de dinheiro entre con
 - Cadastro de novos usuários;
 - Para fazer transações entre contas cadastradas no site;
 - Atualização de saldo assim que a transação concluída;
+- Fale conosco;
 
 3. Em andamento:
 
 - Retirar extrato das últimas transações;
-- Fale conosco;
 - Notificações de transações
 
 Nesse projeto, eu construi **uma aplicação dockerizado utilizando modelagem de dados através do Sequelize**. A API é consumida pelo front-end.
