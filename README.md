@@ -20,7 +20,6 @@
 <details><summary><strong>Testes</strong></summary>
 
 - Mocha, Chai e Sinon;
-- RTL (React Testing Library);
 
 </details>
 
