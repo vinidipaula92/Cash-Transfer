@@ -182,7 +182,7 @@ Na sua máquina você deve ter:
 - Para rodar o projeto por completo:
   - Abra dois terminais;
   - Entre na pasta /app
-  - Rode em seu terminal `npm run start:backend` e no outro `npm run start:backend`;
+  - Rode em seu terminal `npm run start:backend` e no outro `npm run start:frontend`;
 
 </details>
 
